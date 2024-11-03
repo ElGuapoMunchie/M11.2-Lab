@@ -36,7 +36,7 @@ function loadData() {
 // Delete the item using DELETE
 function deleteItem(id) {
     let xhr = new XMLHttpRequest();
-    xhr.open("DELETE", "https://5zol9aa2td.execute-api.us-east-2.amazonaws.com/items");
+    xhr.open("DELETE", "https://5zol9aa2td.execute-api.us-east-2.amazonaws.com/items" + id);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send();
 }
