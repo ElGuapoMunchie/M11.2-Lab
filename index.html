@@ -11,7 +11,29 @@
 </head>
 
 <body>
-    <h1>Simple Demo for PUT, GET, and DELETE</h1>
+
+    <h1>My Simple Inventory App</h1>
+
+    <!-- NEW FORM ELEMENTS  -->
+    <form action="/action_page.php">
+        <fieldset>
+            <legend>Add New Item to Database:</legend>
+
+            <label for="ID">ID:</label>
+            -<input type="text" id="ID" name="ID" value="Placeholder"><br>
+
+            <label for="Name">Name:</label>
+            <input type="text" id="Name" name="Name" value="Placeholder"><br>
+
+            <label for="Price">Name:</label>
+            <input type="text" id="Price" name="Price" value="Placeholder"><br><br>
+
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+    <!-- END NEW FORM ELEMENTS -->
+
+    <!-- <h1>Simple Demo for PUT, GET, and DELETE</h1> -->
     <p id="lambda-info">
         <!-- loaded with AJAX -->
     </p>
@@ -22,7 +44,7 @@
     <script>
         document.getElementById("send-data").onclick = function () {
             let xhr = new XMLHttpRequest();
-            xhr.open("PUT", "Your Lambda here");
+            xhr.open("PUT", "https://5zol9aa2td.execute-api.us-east-2.amazonaws.com/items");
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(JSON.stringify({
                 "id": "6666666",
@@ -41,7 +63,7 @@
             xhr.addEventListener("load", function () {
                 lambda.innerHTML = xhr.response;
             });
-            xhr.open("GET", "Your Lambda here");
+            xhr.open("GET", "https://5zol9aa2td.execute-api.us-east-2.amazonaws.com/items");
             xhr.send();
         }
 
@@ -53,7 +75,7 @@
     <script>
         document.getElementById("delete-data").onclick = function () {
             let xhr = new XMLHttpRequest();
-            xhr.open("DELETE", "Your Lambda here");
+            xhr.open("DELETE", "https://5zol9aa2td.execute-api.us-east-2.amazonaws.com/items");
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send();
         }
